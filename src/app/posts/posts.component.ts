@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable, Subject, switchMap } from 'rxjs';
 import { Post } from '../interfaces/post';
 import { PostsService } from '../services/posts.service';
 
@@ -13,5 +13,13 @@ export class PostsComponent {
 
   constructor(private postsService: PostsService) {
     this.posts$ = this.postsService.getPosts();
+  }
+
+  filterPosts(filter: string) {
+    this.posts$ = this.postsService
+      .getPosts()
+      .pipe(
+        map((posts) => posts.filter((post) => post.title.includes(filter))),
+      );
   }
 }

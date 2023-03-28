@@ -1,0 +1,8 @@
+<fieldset>
+  <legend>Filter Posts</legend>
+  <form [formGroup]="filterForm" (submit)="submit()">
+    <label for="filter">Title to filter by</label>
+    <input type="text" name="filter" id="filter" formControlName="filter" />
+    <button>Filter</button>
+  </form>
+</fieldset>

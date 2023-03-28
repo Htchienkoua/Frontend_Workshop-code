@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { PostsModule } from './posts/posts.module';
+import { MainMenuComponent } from './main-menu/main-menu.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/posts' },
@@ -24,7 +25,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, MainMenuComponent],
   imports: [BrowserModule, RouterModule.forRoot(routes), HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

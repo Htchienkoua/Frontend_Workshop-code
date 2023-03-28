@@ -13,6 +13,11 @@ const routes: Routes = [
     component: PostsComponent,
   },
   {
+    path: 'new-post',
+    loadChildren: () =>
+      import('./new-post/new-post.module').then((m) => m.NewPostModule),
+  },
+  {
     path: '**',
     component: PostsComponent,
   },
@@ -20,12 +25,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [AppComponent, PostsComponent],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot(routes),
-    ReactiveFormsModule,
-    HttpClientModule,
-  ],
+  imports: [BrowserModule, RouterModule.forRoot(routes), HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
